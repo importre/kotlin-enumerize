@@ -1,0 +1,24 @@
+apply plugin: "org.jetbrains.kotlin.jvm"
+apply plugin: "org.jetbrains.kotlin.kapt"
+apply plugin: 'application'
+
+mainClassName = 'com.importre.kotlin.enumerize.example.Main'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+kapt {
+    arguments {
+        arg("debug", true)
+    }
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib.jdk8
+
+    implementation project(':modules:enumerize')
+    kapt project(':modules:enumerize-processor')
+
+    testImplementation deps.junit
+    testImplementation deps.kotlin.test.jdk
+}

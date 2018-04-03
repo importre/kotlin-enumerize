@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation project(':modules:enumerize')
+    implementation deps.google.guava
+
+    api deps.poet.kotlin
+
+    compileOnly deps.google.auto.service
+
+    testImplementation deps.junit
+    testImplementation deps.google.truth
+    testImplementation deps.google.compileTesting
+}
+
+apply from: rootProject.file('gradle/jcenter.gradle')

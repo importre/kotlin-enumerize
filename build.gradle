@@ -1,0 +1,58 @@
+buildscript {
+
+    ext.versions = [
+        kotlin        : '1.2.31',
+        kotlinpoet    : '0.7.0',
+        javapoet      : '1.10.0',
+        junit         : '4.12',
+        autoService   : '1.0-rc4',
+        guava         : '24.1-jre',
+        truth         : '0.40',
+        compileTesting: '0.15',
+        bintray       : '1.7.3',
+    ]
+
+    ext.deps = [
+        kotlin: [
+            stdlib: [
+                jdk8   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}",
+                reflect: "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}",
+            ],
+            test  : [
+                annotations: "org.jetbrains.kotlin:kotlin-test-annotations-common:${versions.kotlin}",
+                jdk        : "org.jetbrains.kotlin:kotlin-test-junit:${versions.kotlin}",
+            ],
+        ],
+        poet  : [
+            java  : "com.squareup:javapoet:${versions.javapoet}",
+            kotlin: "com.squareup:kotlinpoet:${versions.kotlinpoet}",
+        ],
+        google: [
+            guava         : "com.google.guava:guava:${versions.guava}",
+            auto          : [
+                service: "com.google.auto.service:auto-service:${versions.autoService}",
+            ],
+            truth         : "com.google.truth:truth:${versions.truth}",
+            compileTesting: "com.google.testing.compile:compile-testing:${versions.compileTesting}",
+        ],
+        junit : "junit:junit:${versions.junit}",
+    ]
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:${versions.bintray}"
+    }
+}
+
+subprojects { subproject ->
+    version = VERSION_NAME
+    group = GROUP
+
+    repositories {
+        jcenter()
+    }
+}
