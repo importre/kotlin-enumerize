@@ -7,6 +7,9 @@
 | enumerize           | [ ![Download][enumerize-svg] ][enumerize-version] |
 | enumerize-processor | [ ![Download][enumerize-processor-svg] ][enumerize-processor-version] |
 
+
+![][enumerize-result]
+
 ### Settings
 
 ```groovy
@@ -81,3 +84,4 @@ out.println(LogUtils.isError(log));      // true
 [enumerize-processor-svg]: https://api.bintray.com/packages/importre/maven/enumerize-processor/images/download.svg
 [enumerize-version]: https://bintray.com/importre/maven/enumerize/_latestVersion
 [enumerize-processor-version]: https://bintray.com/importre/maven/enumerize-processor/_latestVersion
+[enumerize-result]: https://user-images.githubusercontent.com/1744446/38293336-067856aa-3822-11e8-9b07-59cb11f68b4a.png
