@@ -13,7 +13,6 @@ import com.squareup.kotlinpoet.TypeVariableName;
 
 import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;

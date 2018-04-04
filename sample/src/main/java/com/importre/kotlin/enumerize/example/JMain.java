@@ -1,7 +1,7 @@
 package com.importre.kotlin.enumerize.example;
 
-import com.importre.kotlin.enumerize.example.model.LogUtils;
 import com.importre.kotlin.enumerize.example.model.Log;
+import com.importre.kotlin.enumerize.example.model.LogUtils;
 
 import static java.lang.System.out;
 
