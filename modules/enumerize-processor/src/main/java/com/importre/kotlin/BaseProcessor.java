@@ -2,6 +2,8 @@ package com.importre.kotlin;
 
 import com.squareup.kotlinpoet.FileSpec;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.annotation.Annotation;
@@ -44,7 +46,24 @@ public abstract class BaseProcessor extends AbstractProcessor {
         return true;
     }
 
-    protected abstract void generateFiles();
+    protected void generateFiles() {
+        String pathname = processingEnv
+            .getOptions()
+            .get("kapt.kotlin.generated");
+
+        if (pathname == null) {
+            error("Please set `kapt.kotlin.generated` in your gradle project.");
+            return;
+        }
+
+        fileSpecs.forEach(fileSpec -> {
+            try {
+                fileSpec.writeTo(new File(pathname));
+            } catch (IOException e) {
+                fatalError(e);
+            }
+        });
+    }
 
     protected abstract void process(RoundEnvironment roundEnv);
 
